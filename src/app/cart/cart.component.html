@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="order-container">
+        <h1>My Cart</h1>
+        <div class="product">
+            <span class="title">Item</span>
+            <span class="price">Price</span>
+            <span class="title"> Quantity</span>
+        </div>
+        <div class="product" *ngFor="let product of addedProducts">
+            <span class="title">{{product.title}}</span>
+            <span class="price">{{product.price |currency:'INR'}}</span>
+            <input class="title" type="number" value="{{product.quantity}}" (change)="changeProductQuantity($event, product)" class="title">
+            <span style="margin-left: 10px;" class="action">
+                <button title="buy product" class="add" (click)="buyProduct(product)">Buy</button>
+            </span>
+        </div>
+        <button routerLink="/root">Shop More</button>
+    </div>
+
+</div>

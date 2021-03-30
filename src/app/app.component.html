@@ -1,0 +1,28 @@
+<h2>{{title}}</h2>
+<!--<div class="container">
+    <div class="row">
+        <div class="search-product">
+            <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Start searching for a product by name or category or price or availableQuantity">
+        </div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Item Name</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                    <th>Available Quantity</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let product of products | filter:searchText">
+                    <td>{{product.itemName}}</td>
+                    <td>{{product.category}}</td>
+                    <td>{{product.price}}</td>
+                    <td>{{product.availableQuantity}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div> -->
+
+<router-outlet></router-outlet>

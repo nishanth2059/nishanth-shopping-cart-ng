@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="order-container">
+        <h1>My Products</h1>
+        <div class="search-product">
+            <input class="form-control" type="text" name="search" [(ngModel)]="searchInput" (ngModelChange)="search()" autocomplete="off" placeholder="Start searching for a product by name or category or price or availableQuantity">
+        </div>
+        <div class="product">
+            <span class="title">Item Name</span>
+            <span class="title">Category</span>
+            <span class="price">Price</span>
+            <span class="title">Available Quantity</span>
+            <span class="add">Add</span>
+        </div>
+        <div class="product" *ngFor="let product of products | filter:searchText">
+            <span class="title">{{product.itemName}}</span>
+            <span class="title">{{product.category}}</span>
+            <span class="price">{{product.price |currency:'INR'}}</span>
+            <span class="title">{{product.availableQuantity}}</span>
+            <span class="action">
+            <button title="Add to cart" class="add" (click)="addProduct(product)" [disabled]="product.availableQuantity <= 0">+</button>
+            </span>
+        </div>
+    </div>
+    <div class="my-cart-container">
+        <h2>My Cart</h2>
+        <span style="font-weight: bold;">Items Added: {{itemsNo}}</span>
+        <button style="margin: 10px 0;" (click)="gotoCart()">View Cart</button>
+        <!--
+        <ul>
+            <li class="cart-item" *ngFor="let addedProduct of addedProducts">
+                <span class="title">{{addedProduct.title}} x </span>
+                <span class="price">{{addedProduct.quantity}} = </span>
+                <span class="price">{{addedProduct.price | currency:'INR'}} </span>
+                <span class="action">
+             <button title="remove from cart" class="add" (click)="removeProduct(addedProduct)">x</button>
+            </span>
+            </li>
+        </ul> -->
+    </div>
+</div>
